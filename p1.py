@@ -1,4 +1,224 @@
-### Question 1: Sum of Elements in a List
+
+1. Sum of Even Numbers in a List
+Problem: Write a function that takes a list of integers and returns the sum of all even numbers in the list.
+Sample Inputs and Outputs:
+
+Input: [1, 2, 3, 4, 5, 6] → Output: 12 (2 + 4 + 6)
+Input: [1, 3, 5, 7] → Output: 0 (no even numbers)
+Input: [2, 4, 6, 8] → Output: 20 (2 + 4 + 6 + 8)
+Input: [] → Output: 0 (empty list)
+Input: [-2, 3, -4, 5, 6] → Output: 0 (-2 + -4 + 6 = 0)
+
+x = [1,2,3,4,5,6,7,8,9,11,12]
+def even_sum(x):
+    # count = 0:
+    y = []	
+    for i in x:
+        if i % 2 == 0:
+            y.append(i)
+            sum_list = sum(y)
+    return (y, sum_list)
+list,sum_list= even_sum(x) 
+print(list , sum_list)
+
+
+
+
+
+
+2. Count Vowels in a String
+Problem: Write a function that counts the number of vowels (a, e, i, o, u) in a given string (case-insensitive).
+Sample Inputs and Outputs:
+
+Input: "hello" → Output: 2 (e, o)
+Input: "PYTHON" → Output: 1 (o)
+Input: "aeiou" → Output: 5 (a, e, i, o, u)
+Input: "xyz" → Output: 0 (no vowels)
+Input: "HeLLo WoRLD" → Output: 3 (e, o, o)
+
+
+
+
+
+
+
+x = "HEello Pakistan".lower()
+def vowel_list(x):
+    count = 0
+    y = []
+    for i in x:
+        if i in ("a", "e", "i", "o", "u"):
+            count +=1
+            y.append(i)
+    return (y, count)
+vowel, count = vowel_list(x)
+print ("Vowels are" , vowel, "Total numbers of vowels ="  ,count)
+
+3. Find the Maximum Key in a Dictionary
+Problem: Write a function that returns the key with the maximum value in a dictionary. If the dictionary is empty, return None.
+Sample Inputs and Outputs:
+
+Input: {"a": 10, "b": 20, "c": 15} → Output: "b" (20 is max)
+Input: {"x": 5, "y": 5} → Output: "x" or "y" (equal max, return any)
+Input: {"p": -1, "q": -5, "r": -10} → Output: "p" (-1 is max)
+Input: {} → Output: None (empty dictionary)
+Input: {"single": 100} → Output: "single" (only key)
+x = { "q": 99, "w": 100, "r": 110}
+max_value = max(x.values())
+print(max_value)
+
+4. Reverse a List
+Problem: Write a function that reverses a given list without using the built-in reverse() method or slicing.
+Sample Inputs and Outputs:
+
+Input: [1, 2, 3, 4] → Output: [4, 3, 2, 1]
+Input: ["a", "b", "c"] → Output: ["c", "b", "a"]
+Input: [] → Output: [] (empty list)
+Input: [5] → Output: [5] (single element)
+Input: [1, "hello", 3.14] → Output: [3.14, "hello", 1]
+
+
+5. Check if a Number is Prime
+Problem: Write a function that checks if a given number is prime (divisible only by 1 and itself).
+Sample Inputs and Outputs:
+
+Input: 7 → Output: True (prime)
+Input: 4 → Output: False (divisible by 2)
+Input: 1 → Output: False (1 is not prime)
+Input: 13 → Output: True (prime)
+Input: 15 → Output: False (divisible by 3, 5)
+
+
+
+
+
+x = int (input("Number"))
+count = 0
+divisors =[]
+for i in range (1, x+1):
+    if x % i == 0:
+        count += 1
+        divisors.append(i)
+if count == 2:
+        print(True, "Prime number")
+else:
+    print(False, "Not prime number",x, "is divisible by =" , divisors)
+
+6. Merge Two Dictionaries
+Problem: Write a function that merges two dictionaries. If a key exists in both, keep the value from the second dictionary.
+Sample Inputs and Outputs:
+
+Input: {"a": 1, "b": 2}, {"b": 3, "c": 4} → Output: {"a": 1, "b": 3, "c": 4}
+Input: {"x": 10}, {"y": 20} → Output: {"x": 10, "y": 20}
+Input: {}, {"a": 5} → Output: {"a": 5}
+Input: {"p": 1}, {} → Output: {"p": 1}
+Input: {"a": 1}, {"a": 2} → Output: {"a": 2}
+
+x = {"a" : 2, "b": 3, "c": 6}
+y = {"e" : 222, "f": 322, "q": 126}
+x.update(y)
+print(x)
+
+
+
+7. Count Occurrences in a List
+Problem: Write a function that counts how many times a given element appears in a list.
+Sample Inputs and Outputs:
+
+Input: [1, 2, 2, 3, 2], 2 → Output: 3 (2 appears 3 times)
+Input: ["a", "b", "a"], "a" → Output: 2 (a appears 2 times)
+Input: [1, 2, 3], 4 → Output: 0 (4 not in list)
+Input: [], 5 → Output: 0 (empty list)
+Input: [1, 1, 1], 1 → Output: 3 (1 appears 3 times)
+
+x =[1,2,3,4,5,6,6]
+given_num = 1
+count = 0
+for i in x:
+    if i == given_num:
+        count+= 1
+if count >= 1:        
+    print(given_num, "apperas", count, "times")
+else:
+    print("Given number dont exixt in list")
+
+8. Remove Duplicates from a List
+Problem: Write a function that removes duplicates from a list while preserving the original order of elements.
+Sample Inputs and Outputs:
+
+Input: [1, 2, 2, 3, 1] → Output: [1, 2, 3]
+Input: ["a", "b", "a", "c"] → Output: ["a", "b", "c"]
+Input: [1, 1, 1] → Output: [1]
+Input: [] → Output: [] (empty list)
+Input: [3, 3, "x", "x", 4] → Output: [3, "x", 4]
+
+
+
+
+x = [1,2,3,4,5,6,6,77,88,99,9,7,1,"a","a",2,3,4,5,2]
+unique_list =set(x)
+print (unique_list)
+print(len(x))
+print (len(unique_list))
+
+9. Find Common Elements
+Problem: Write a function that returns a list of common elements between two lists.
+Sample Inputs and Outputs:
+
+Input: [1, 2, 3], [2, 3, 4] → Output: [2, 3]
+Input: ["a", "b", "c"], ["b", "d"] → Output: ["b"]
+Input: [1, 2], [3, 4] → Output: [] (no common elements)
+Input: [], [1, 2] → Output: [] (empty list)
+Input: [1, 1, 2], [1, 2, 2] → Output: [1, 2]
+
+x = [1,2,3,4,5]
+# y = [2,4,6,7,8]
+# common_list = []
+# for i in x:
+#     if i in y:
+#         common_list.append(i)
+# if len(common_list) == 0:       
+#     print("No common element")
+# else:
+#     print("Common List", common_list)
+10. Dictionary Value Sum
+Problem: Write a function that returns the sum of all values in a dictionary. Assume values are numbers.
+Sample Inputs and Outputs:
+
+Input: {"a": 10, "b": 20, "c": 30} → Output: 60 (10 + 20 + 30)
+Input: {"x": -5, "y": 5} → Output: 0 (-5 + 5)
+Input: {} → Output: 0 (empty dictionary)	
+Input: {"p": 1} → Output: 1 (single value)
+Input: {"q": 2.5, "r": 3.5} → Output: 6.0 (2.5 + 3.5)
+list= {
+#     "a" : 9,
+#     "b" : 10,
+#     "c" : 11,
+#     "d" : 19,
+#     "e" : 20,
+#     }
+# total = sum(list.values())
+# print("Sum of Values of keys =",total)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Question 1: Sum of Elements in a List
 Write a Python function that takes a list of numbers and returns the sum of all elements using a loop (not sum()).
 
 **Sample Inputs and Outputs:**
@@ -9,113 +229,16 @@ Write a Python function that takes a list of numbers and returns the sum of all 
 5. Input: `[]` → Output: `0`
 
 ---
-
-### Question 2: Count Occurrences in a List
-Write a Python function that takes a list and an element, and returns how many times the element appears in the list using a loop.
-
-**Sample Inputs and Outputs:**
-1. Input: `[1, 2, 2, 3], 2` → Output: `2`
-2. Input: `["a", "b", "a", "c"], "a"` → Output: `2`
-3. Input: `[1, 1, 1], 1` → Output: `3`
-4. Input: `[4, 5, 6], 7` → Output: `0`
-5. Input: `[], 5` → Output: `0`
-
----
-
-### Question 3: Create a Dictionary from Two Lists
-Write a Python function that takes two lists (keys and values) of equal length and creates a dictionary using a loop.
-
-**Sample Inputs and Outputs:**
-1. Input: `["a", "b", "c"], [1, 2, 3]` → Output: `{"a": 1, "b": 2, "c": 3}`
-2. Input: `["x", "y"], [10, 20]` → Output: `{"x": 10, "y": 20}`
-3. Input: `[], []` → Output: `{}`
-4. Input: `["name"], ["Alice"]` → Output: `{"name": "Alice"}`
-5. Input: `["p", "q", "r"], [0, 0, 0]` → Output: `{"p": 0, "q": 0, "r": 0}`
-
----
-
-### Question 4: Find Maximum in a Nested List
-Write a Python function that uses nested loops to find the maximum number in a nested list (list of lists).
-
-**Sample Inputs and Outputs:**
-1. Input: `[[1, 2], [3, 4], [5, 6]]` → Output: `6`
-2. Input: `[[-1, -2], [-3, -4]]` → Output: `-1`
-3. Input: `[[10], [20], [30]]` → Output: `30`
-4. Input: `[[1, 2, 3]]` → Output: `3`
-5. Input: `[[0, 0], [0, 0]]` → Output: `0`
-
----
-
-### Question 5: Merge Two Dictionaries
-Write a Python function that merges two dictionaries using a loop. If a key exists in both, sum their values.
-
-**Sample Inputs and Outputs:**
-1. Input: `{"a": 1, "b": 2}, {"b": 3, "c": 4}` → Output: `{"a": 1, "b": 5, "c": 4}`
-2. Input: `{"x": 10}, {"y": 20}` → Output: `{"x": 10, "y": 20}`
-3. Input: `{}, {}` → Output: `{}`
-4. Input: `{"p": 5}, {"p": 5}` → Output: `{"p": 10}`
-5. Input: `{"a": 1, "b": 2, "c": 3}, {"a": 4}` → Output: `{"a": 5, "b": 2, "c": 3}`
-
----
-
-### Question 6: Transpose a Matrix (List of Lists)
-Write a Python function that transposes a matrix (list of lists) using nested loops.
-
-**Sample Inputs and Outputs:**
-1. Input: `[[1, 2], [3, 4]]` → Output: `[[1, 3], [2, 4]]`
-2. Input: `[[1, 2, 3], [4, 5, 6]]` → Output: `[[1, 4], [2, 5], [3, 6]]`
-3. Input: `[[1]]` → Output: `[[1]]`
-4. Input: `[[1, 2], [3, 4], [5, 6]]` → Output: `[[1, 3, 5], [2, 4, 6]]`
-5. Input: `[[0, 0], [0, 0]]` → Output: `[[0, 0], [0, 0]]`
-
----
-
-### Question 7: Dictionary Key-Value Swap
-Write a Python function that swaps keys and values in a dictionary using a loop. Assume values are unique.
-
-**Sample Inputs and Outputs:**
-1. Input: `{"a": 1, "b": 2}` → Output: `{1: "a", 2: "b"}`
-2. Input: `{"name": "Alice", "age": 25}` → Output: `{"Alice": "name", 25: "age"}`
-3. Input: `{}` → Output: `{}`
-4. Input: `{"x": 0}` → Output: `{0: "x"}`
-5. Input: `{"p": "q", "r": "s"}` → Output: `{"q": "p", "s": "r"}`
-
----
-
-### Question 8: Flatten a Nested List
-Write a Python function that flattens a nested list into a single list using nested loops.
-
-**Sample Inputs and Outputs:**
-1. Input: `[[1, 2], [3, 4]]` → Output: `[1, 2, 3, 4]`
-2. Input: `[[1], [2], [3]]` → Output: `[1, 2, 3]`
-3. Input: `[[]]` → Output: `[]`
-4. Input: `[[0, 0], [0]]` → Output: `[0, 0, 0]`
-5. Input: `[[1, 2, 3], [4, 5]]` → Output: `[1, 2, 3, 4, 5]`
-
----
-
-### Question 9: Count Words in a List of Sentences
-Write a Python function that takes a list of strings (sentences) and returns a dictionary with word counts using nested loops.
-
-**Sample Inputs and Outputs:**
-1. Input: `["hello world", "hello python"]` → Output: `{"hello": 2, "world": 1, "python": 1}`
-2. Input: `["a a", "a b"]` → Output: `{"a": 3, "b": 1}`
-3. Input: `[]` → Output: `{}`
-4. Input: `["test test test"]` → Output: `{"test": 3}`
-5. Input: `["hi", "hi there"]` → Output: `{"hi": 2, "there": 1}`
-
----
-
-### Question 10: Nested Loop Pattern
-Write a Python function that generates a list of lists where each inner list contains numbers from 1 to n, repeated n times, using nested loops.
-
-**Sample Inputs and Outputs:**
-1. Input: `3` → Output: `[[1, 2, 3], [1, 2, 3], [1, 2, 3]]`
-2. Input: `2` → Output: `[[1, 2], [1, 2]]`
-3. Input: `1` → Output: `[[1]]`
-4. Input: `4` → Output: `[[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]`
-5. Input: `0` → Output: `[]`
-
----
-
-These questions cover a range of operations with lists, dictionaries, and nested loops. You can implement these functions and test them with the provided inputs to verify the outputs. Let me know if you'd like solutions or hints for any of these!
+x = [1,2,3,4,5,6,7,8,9,11,12]
+def even_sum(x):
+    sum_list = 0
+    y = []
+    for i in x:
+        if i % 2 == 0:
+            y.append(i)
+    for i in y:
+        sum_list += i
+    return (y, sum_list)
+list,sum_list= even_sum(x) 
+print(list , sum_list)
+        
